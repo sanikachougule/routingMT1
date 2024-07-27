@@ -1,0 +1,54 @@
+<div class="row">
+    <mat-card class="example-card">
+        <mat-card-title-group>
+            <div class="col-md-6">
+                <mat-card-title class="mb-4">{{productObj.name}}
+                </mat-card-title>
+                <mat-card-subtitle class="font-weight-bold"
+                [ngClass]="{
+                    
+                  'text-success':productObj.progress === 'Delivery',
+                  'text-warning': productObj.progress === 'InProgress',
+                  'text-danger': productObj.progress === 'Dispatched'
+                }">
+                {{productObj.progress}}</mat-card-subtitle>
+                <div class="mt-2">
+                   <em class="description">Description:</em>
+                    <mat-card-content>
+                        {{productObj.description}}
+                     </mat-card-content>
+                </div>
+              </div>
+              
+                <div class="col-md-2">
+                    <div class="priceContainer">
+                        <h3>₹{{productObj.price}}</h3>
+                        <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"  alt="FlipKart Assured"
+                        title="FlipKart Assured" class="imgFlipKart">
+                        <p class="mb-0">Free Delivery</p>
+                        <p class="priceOffer mb-0">Save extra with combo offers</p>
+                     </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="imgcontainer">
+                        <img mat-card-xl-image [src]="productObj.image" [alt]="productObj.name" [title]="productObj.name">
+                    </div>
+                </div>
+        
+        </mat-card-title-group>
+        <mat-card-actions>
+           <div class="d-flex justify-content-between p-4">
+            <button 
+            routerLink="editProduct"
+            type="button"  mat-raised-button color="primary">Edit Product</button>
+    
+            <button 
+            (click)="onRemoveProduct()"
+            type="button"
+            mat-raised-button color="warn">Remove</button>
+           </div>
+    
+        </mat-card-actions>
+      </mat-card>
+</div>
+  

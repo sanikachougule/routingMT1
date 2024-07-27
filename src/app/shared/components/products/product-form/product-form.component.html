@@ -1,0 +1,44 @@
+
+<mat-card class="card">
+<h2>{{!isEditMode ? 'Add Product Form' : 'Udated Product Form'}}</h2>
+
+    <form [formGroup]="productForm" (ngSubmit)="onProductAdd()">
+        <mat-form-field class="w-100 mb-4" appearance="fill">
+            <mat-label for="name">Product Name</mat-label>
+            <input matInput formControlName="name" id="name" name="name">
+           
+          </mat-form-field>
+          <mat-form-field  class="w-100 mb-4" appearance="fill">
+            <mat-label>Product Progress</mat-label>
+            <mat-select formControlName="progress">
+              <mat-option value="InProgress">InProgress</mat-option>
+              <mat-option value="Dispatched">Dispatched</mat-option>
+              <mat-option value="Delivery">Delivery</mat-option>
+           </mat-select>
+          </mat-form-field>
+          <mat-form-field class="w-100 mb-4" appearance="fill">
+            <mat-label for="price">Product price</mat-label>
+            <input matInput formControlName="price" id="price" name="price">
+          </mat-form-field>
+          <mat-form-field class="w-100 mb-4" appearance="fill">
+            <mat-label for="image">Product ImgUrl</mat-label>
+            <input matInput formControlName="image" id="image" name="image">
+          </mat-form-field>
+          <mat-form-field  class="w-100 mb-4" appearance="fill">
+            <mat-label for="description"> Product Description</mat-label>
+            <textarea rows="4" matInput formControlName="description" name="description"></textarea>
+          </mat-form-field>
+
+          <button
+          *ngIf="!isEditMode"
+          class="btn-sm btn"
+          type="submit"
+          mat-raised-button color="primary">Add Product</button>
+          <button 
+          (click)="onUpdateProduct()"
+          class="btn-sm btn"
+          *ngIf="isEditMode" 
+          type="button"
+          mat-raised-button color="primary">Update Products</button>
+    </form>
+</mat-card>

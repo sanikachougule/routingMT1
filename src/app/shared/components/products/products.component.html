@@ -1,0 +1,24 @@
+
+
+
+<div class="body">
+    <div class="text-right">
+        <button 
+           routerLink="addProduct"
+           type="button"
+           class="btn btn-sm btn-primary">Add Products</button>
+    </div>
+    <hr>
+    <div class="col-md-6">
+        <ul class="list-group" *ngIf="productData; else noProducts">
+            <li
+            [routerLink]="product.id"
+            class="list-group-item" *ngFor="let product of productData">
+                 {{product.name}}
+            </li>
+        </ul>
+    </div>
+    <ng-template #noProducts>
+       <p class="alert alert-info">No products data available yet!!</p>
+    </ng-template>
+</div>

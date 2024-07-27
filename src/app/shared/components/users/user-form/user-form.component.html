@@ -1,0 +1,36 @@
+<mat-card>
+    <form [formGroup]="userForm" (ngSubmit)="onUserAdd()">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label for="userName">userName</mat-label>
+            <input matInput formControlName="userName" id="userName" name="userName">
+          </mat-form-field>
+          <mat-form-field  class="w-100" appearance="fill">
+            <mat-label for="userRole">UserRole</mat-label>
+            <mat-select formControlName="userRole" name="userRole" id="userRole">
+              <mat-option value="admin">admin</mat-option>
+              <mat-option value="buyer">buyer</mat-option>
+             </mat-select>
+        </mat-form-field>
+        <mat-form-field  class="w-100" appearance="fill">
+            <mat-label for="canReturn">CanReturn</mat-label>
+            <mat-select formControlName="CanReturn" name="canReturn" id="canReturn">
+              <mat-option value="0">0</mat-option>
+              <mat-option value="1">1</mat-option>
+             </mat-select>
+        </mat-form-field>
+        <button
+        [disabled]="userRole"
+        *ngIf="!isEditMode"
+        class="btn-sm btn"
+        type="submit"
+        mat-raised-button color="primary">Add User</button>
+
+        <button 
+         [disabled]="userRole ==='buyer'"
+        (click)="onUpdateUser()"
+        class="btn-sm btn"
+        *ngIf="isEditMode" 
+        type="button"
+        mat-raised-button color="primary">Update User</button>
+    </form>
+</mat-card>

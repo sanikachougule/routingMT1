@@ -1,0 +1,24 @@
+
+<div class="text-right">
+    <button 
+    routerLink="addUser"
+    type="submit"
+    class="btn btn-sm" mat-raised-button color="primary">Add Users</button>
+</div>
+<hr>
+<div class="col-md-6">
+    <ul class="list-group" *ngIf="userData; else noUsers">
+        <li 
+        [queryParams]="{userRole : user.userRole}"
+        [routerLink]="user.userId"
+        class="list-group-item" *ngFor="let user of userData">
+             {{user.userName}}
+        </li>
+    </ul>
+</div>
+<ng-template #noUsers>
+    <p class="alert alert-info">
+        No Users data is available yet!!!
+    </p>
+</ng-template>
+

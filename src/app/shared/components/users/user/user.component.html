@@ -1,0 +1,18 @@
+<p class="alert alert-secondary mb-4"> The  user is <strong>{{userObj.userName}}</strong> and its userRole is <strong>
+    {{userObj.userRole}}
+</strong> </p>
+
+<div class="d-flex justify-content-between">
+    <button
+    routerLink="editUser"
+    mat-raised-button color="primary"
+       type="button"
+       class="btn btn-sm">Edit User</button>
+
+    <button
+    (click)="onRemoveuser()"
+     mat-raised-button color="warn"
+     type="button"
+         class="btn btn-sm">Remove</button>
+    
+</div>
